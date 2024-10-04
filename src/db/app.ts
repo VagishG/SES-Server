@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
     res.send("Hello World");
 });
 
-import GlobalRouter from "./routes/global.routes"
+import GlobalRouter from "../routes/global.routes"
 app.use("/api/v1", GlobalRouter);
 
 export default app;
