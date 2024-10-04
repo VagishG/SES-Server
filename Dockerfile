@@ -13,8 +13,11 @@ RUN npm install
 # Copy source code
 COPY src/ ./src/
 
+# Install TypeScript as a dev dependency
+RUN npm install typescript --save-dev
+
 # Compile TypeScript files
-RUN npm install -g typescript && tsc
+RUN npx tsc
 
 # Stage 2: Production
 FROM node:18 AS release
