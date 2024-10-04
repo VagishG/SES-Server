@@ -1,40 +1,36 @@
-# Dockerfile
+# Stage 1: Build
+FROM node:18 AS build
 
-# use the official Bun image
-# see all versions at https://hub.docker.com/r/oven/bun/tags
-FROM oven/bun:1 as base
+# Set working directory
 WORKDIR /usr/src/app
 
-# install dependencies into temp folder
-# this will cache them and speed up future builds
-FROM base AS install
-RUN mkdir -p /temp/dev
-COPY package.json bun.lockb /temp/dev/
-RUN cd /temp/dev && bun install --frozen-lockfile
+# Copy package.json and package-lock.json
+COPY package.json ./
 
-# install with --production (exclude devDependencies)
-RUN mkdir -p /temp/prod
-COPY package.json bun.lockb /temp/prod/
-RUN cd /temp/prod && bun install --frozen-lockfile --production
+# Install dependencies
+RUN npm install
 
-# copy node_modules from temp folder
-# then copy all (non-ignored) project files into the image
-FROM install AS prerelease
-COPY --from=install /temp/dev/node_modules node_modules
-COPY . .
+# Copy source code
+COPY src/ ./src/
 
-# [optional] tests & build
-# ENV NODE_ENV=production
-# RUN bun test
-# RUN bun run build
+# Compile TypeScript files
+RUN npm install -g typescript && tsc
 
-# copy production dependencies and source code into final image
-FROM base AS release
-COPY --from=install /temp/prod/node_modules node_modules
-COPY --from=prerelease /usr/src/index.ts .
-COPY --from=prerelease /usr/package.json .
+# Stage 2: Production
+FROM node:18 AS release
 
-# run the app
-USER bun
-EXPOSE 3000/tcp
-CMD ["bun", "run", "dev"]
+# Set working directory
+WORKDIR /usr/src/app
+
+# Copy node_modules and compiled files from the build stage
+COPY --from=build /usr/src/app/node_modules ./node_modules
+COPY --from=build /usr/src/app/src ./src
+
+# Copy package.json
+COPY package.json ./
+
+# Expose the port the app runs on
+EXPOSE 3000
+
+# Command to run the app (using the compiled JavaScript file)
+CMD ["node", "src/index.js"]
