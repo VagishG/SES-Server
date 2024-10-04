@@ -1,6 +1,7 @@
-import ses from "../helper/ses";
+import { SendBulkTemplatedEmailCommand } from "@aws-sdk/client-ses";
 import type { Request, Response } from "express"; // Importing as type-only
 import { addEmail, canSendMail } from "../helper/checkStatus";
+import ses from "../helper/ses";
 
 const sendTemplateMail = async (req: Request, res: Response): Promise<void> => {
   const { email, template } = req.body;
@@ -43,10 +44,18 @@ const sendTemplateMail = async (req: Request, res: Response): Promise<void> => {
 
     const sendEmail = () =>
       new Promise((resolve, reject) => {
-        ses.sendBulkTemplatedEmail(params, (err, data) => {
-          if (err) reject(err);
-          else resolve(data);
-        });
+        // ses.sendBulkTemplatedEmail(params, (err, data) => {
+        //   if (err) reject(err);
+        //   else resolve(data);
+        // });
+        const command = new SendBulkTemplatedEmailCommand(params);
+        ses.send(command)
+          .then((data) => {
+            resolve(data);
+          })
+          .catch((error) => {
+            reject(error);
+          });
       });
 
     const result = await sendEmail();
@@ -63,3 +72,4 @@ const sendTemplateMail = async (req: Request, res: Response): Promise<void> => {
 };
 
 export { sendTemplateMail };
+

@@ -1,7 +1,8 @@
-import ses from "../helper/ses";
+import { SendEmailCommand } from "@aws-sdk/client-ses";
 import bcrypt from "bcryptjs";
 import type { Request, Response } from "express"; // Importing as type-only
 import { addEmail, canSendMail } from "../helper/checkStatus";
+import ses from "../helper/ses";
 
 // Generate OTP
 const generateOTP = (length: number): string => {
@@ -14,14 +15,14 @@ const generateOTP = (length: number): string => {
 };
 
 // Hash a string using bcrypt
-const hashString = async (str: string): Promise<string> => {
-  const saltRounds = 10;
-  const hashedString = await bcrypt.hash(str, saltRounds);
-  return hashedString;
-};
+// async function hashString(str: string) {
+//   const saltRounds = 10;
+//   const hashedString = await bcrypt.hash(str, saltRounds);
+//   return hashedString;
+// }
 
 // Send OTP via email
-const sendOtp = async (req: Request, res: Response): Promise<void> => {
+const sendOtp = async (req: Request, res: Response) => {
   const { email, subject, length } = req.body;
 
   // Validate input
@@ -62,11 +63,13 @@ const sendOtp = async (req: Request, res: Response): Promise<void> => {
   };
 
   try {
-    await ses.sendEmail(params).promise();
+    // await ses.sendEmail(params).promise();
+    const command = new SendEmailCommand(params);
+    await ses.send(command);
 
-    const hashedOtp = await hashString(otp);
-
-    res.status(200).send({ otp: hashedOtp });
+    // const hashedOtp = await hashString(otp);
+    // console.log(hashedOtp);
+    res.status(200).send({ otp: otp });
   } catch (err) {
     console.error(err);
     res.status(500).send({ message: "Internal Server Error" });
