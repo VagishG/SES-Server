@@ -36,6 +36,9 @@ const sendTemplateMail = async (req: Request, res: Response): Promise<void> => {
       Source: "Prachi <sales@avyuktsolutions.com>",
       Template: template,
       Destinations: destinations,
+      ReplyToAddresses: [
+        "support@avyuktsolutions.com",
+      ],
       DefaultTemplateData: JSON.stringify({
         company_name: "Default Company",
         person_name: "Default Name",

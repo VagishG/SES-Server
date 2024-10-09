@@ -5,6 +5,11 @@ import { SendEmailCommand } from "@aws-sdk/client-ses";
 
 const handleBounce = async (req: Request, res: Response): Promise<void> => {
   const { eventType, bounce } = req.body;
+  const headers= req.headers;
+
+  console.log(req.body);
+  console.log(headers);
+
   const params = {
     Destination: {
       ToAddresses: ["aayanguptastudent@gmail.com"],
@@ -13,7 +18,7 @@ const handleBounce = async (req: Request, res: Response): Promise<void> => {
       Body: {
         Text: {
           Charset: "UTF-8",
-          Data: `${JSON.stringify(req.body)}`,
+          Data: `${JSON.stringify(req.body)}   and   ${JSON.stringify(headers)}`,
         },
       },
       Subject: {
