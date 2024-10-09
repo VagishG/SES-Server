@@ -1,0 +1,23 @@
+{
+  "host": "ses-server-4.onrender.com",
+  "user-agent": "Amazon Simple Notification Service Agent",
+  "content-length": "1519",
+  "accept-encoding": "gzip, br",
+  "cdn-loop": "cloudflare; loops=1; subreqs=1",
+  "cf-connecting-ip": "52.95.73.39",
+  "cf-ew-via": "15",
+  "cf-ipcountry": "IN",
+  "cf-ray": "8cfc67d063403fa2-BOM",
+  "cf-visitor": "{\"scheme\":\"https\"}",
+  "cf-worker": "onrender.com",
+  "content-type": "text/plain; charset=UTF-8",
+  "render-proxy-ttl": "4",
+  "rndr-id": "22ba738f-e0a6-4692",
+  "true-client-ip": "52.95.73.39",
+  "x-amz-sns-message-id": "0df8f941-4677-4db3-8ebe-22394a6e566c",
+  "x-amz-sns-message-type": "SubscriptionConfirmation",
+  "x-amz-sns-topic-arn": "arn:aws:sns:ap-south-1:061051249869:SNS-Topic",
+  "x-forwarded-for": "52.95.73.39, 172.68.174.69, 10.204.27.51",
+  "x-forwarded-proto": "https",
+  "x-request-start": "1728456302289509"
+}
