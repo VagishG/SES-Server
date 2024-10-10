@@ -1,37 +1,12 @@
 {
-  "Type": "SubscriptionConfirmation",
-  "MessageId": "d090418d-925a-4f5f-8a62-99528af91124",
-  "Token": "2336412f37fb687f5d51e6e2425ba1f30ada01309a979da6dbfe9fdbfe5d0d73dd9762917fe19f5f168b54688f706f8bd2eed0e99ee5061de8074b57483f2c62f68d5760add9b858ea7bf9ed7f6ac6cdef7b96bdc3aa2237f13671f8253255833f9795a01f1ee2422e5d9b7f49901b81",
-  "TopicArn": "arn:aws:sns:ap-south-1:061051249869:SNS-Topic",
-  "Message": "You have chosen to subscribe to the topic arn:aws:sns:ap-south-1:061051249869:SNS-Topic.\nTo confirm the subscription, visit the SubscribeURL included in this message.",
-  "SubscribeURL": "https://sns.ap-south-1.amazonaws.com/?Action=ConfirmSubscription&TopicArn=arn:aws:sns:ap-south-1:061051249869:SNS-Topic&Token=2336412f37fb687f5d51e6e2425ba1f30ada01309a979da6dbfe9fdbfe5d0d73dd9762917fe19f5f168b54688f706f8bd2eed0e99ee5061de8074b57483f2c62f68d5760add9b858ea7bf9ed7f6ac6cdef7b96bdc3aa2237f13671f8253255833f9795a01f1ee2422e5d9b7f49901b81",
-  "Timestamp": "2024-10-10T07:57:07.120Z",
-  "SignatureVersion": "1",
-  "Signature": "Epn+9AZjfVCUHn5AqC3kCp/mjacepsj3Lysgdr4DWwkxRBs2Ja3MFnYwIS7LuYcLcGG0rUSloBOfo1T0L540LypN+TiuSWw83/xyDtQYXrDKK3/kY/oQEv5y5jrimiMuae1IkCz1drHVx/yTTDXp+Aj6fixmcth2FvcbTVsxRuEknq8jmbfzal8cOVPxLmWDJnmF4303t2POANZVKlfUICUsfYPxyVbOqJo0EeWu1NfwrEL5YQaptxE/fBuXH2o9EjJEvLGj1oxOj6+69Gi93vLsGbL7NWLXMYNk14NpeyS5CfEvescI50ST1fpM4UrDmDiVqHgFSQWER8mBiZehkA==",
-  "SigningCertURL": "https://sns.ap-south-1.amazonaws.com/SimpleNotificationService-60eadc530605d63b8e62a523676ef735.pem"
-}
-
-
-{
-  "host": "ses-server-4.onrender.com",
-  "user-agent": "Amazon Simple Notification Service Agent",
-  "content-length": "1519",
-  "accept-encoding": "gzip, br",
-  "cdn-loop": "cloudflare; loops=1; subreqs=1",
-  "cf-connecting-ip": "52.95.73.40",
-  "cf-ew-via": "15",
-  "cf-ipcountry": "IN",
-  "cf-ray": "8d050ec807974419-BOM",
-  "cf-visitor": "{\"scheme\":\"https\"}",
-  "cf-worker": "onrender.com",
-  "content-type": "text/plain; charset=UTF-8",
-  "render-proxy-ttl": "4",
-  "rndr-id": "bffcb11e-d756-4b45",
-  "true-client-ip": "52.95.73.40",
-  "x-amz-sns-message-id": "d090418d-925a-4f5f-8a62-99528af91124",
-  "x-amz-sns-message-type": "SubscriptionConfirmation",
-  "x-amz-sns-topic-arn": "arn:aws:sns:ap-south-1:061051249869:SNS-Topic",
-  "x-forwarded-for": "52.95.73.40, 172.68.174.154, 10.204.98.151",
-  "x-forwarded-proto": "https",
-  "x-request-start": "1728547027330606"
+  "Type" : "Notification",
+  "MessageId" : "d3e9f5df-99d6-504d-bb10-aa5e0ab783b2",
+  "TopicArn" : "arn:aws:sns:ap-south-1:061051249869:SNS-Topic",
+  "Subject" : "Amazon SES Email Event Notification",
+  "Message" : "{\"eventType\":\"Bounce\",\"bounce\":{\"feedbackId\":\"01090192758ee86b-7861a540-0b6f-4e96-aa3b-1522c56b59ca-000000\",\"bounceType\":\"Permanent\",\"bounceSubType\":\"General\",\"bouncedRecipients\":[{\"emailAddress\":\"thisissupposhhjvbvhj@gmail.com\",\"action\":\"failed\",\"status\":\"5.1.1\",\"diagnosticCode\":\"smtp; 550-5.1.1 The email account that you tried to reach does not exist. Please try\\n550-5.1.1 double-checking the recipient's email address for typos or\\n550-5.1.1 unnecessary spaces. For more information, go to\\n550 5.1.1  https://support.google.com/mail/?p=NoSuchUser d9443c01a7336-20c8bac5940si8849795ad.73 - gsmtp\"}],\"timestamp\":\"2024-10-10T08:32:32.940Z\",\"remoteMtaIp\":\"142.251.10.26\",\"reportingMTA\":\"dns; c180-12.smtp-out.ap-south-1.amazonses.com\"},\"mail\":{\"timestamp\":\"2024-10-10T08:32:31.864Z\",\"source\":\"sales@avyuktsolutions.com\",\"sourceArn\":\"arn:aws:ses:ap-south-1:061051249869:identity/avyuktsolutions.com\",\"sendingAccountId\":\"061051249869\",\"messageId\":\"01090192758ee478-8e7813fb-ea21-4607-91d7-a57ceb0ff7ac-000000\",\"destination\":[\"thisissupposhhjvbvhj@gmail.com\"],\"headersTruncated\":false,\"headers\":[{\"name\":\"From\",\"value\":\"sales@avyuktsolutions.com\"},{\"name\":\"Reply-To\",\"value\":\"support@avyuktsolutions.com\"},{\"name\":\"To\",\"value\":\"thisissupposhhjvbvhj@gmail.com\"},{\"name\":\"Subject\",\"value\":\"Sample Subject\"},{\"name\":\"MIME-Version\",\"value\":\"1.0\"},{\"name\":\"Content-Type\",\"value\":\"text/plain; charset=UTF-8\"},{\"name\":\"Content-Transfer-Encoding\",\"value\":\"7bit\"}],\"commonHeaders\":{\"from\":[\"sales@avyuktsolutions.com\"],\"replyTo\":[\"support@avyuktsolutions.com\"],\"to\":[\"thisissupposhhjvbvhj@gmail.com\"],\"messageId\":\"01090192758ee478-8e7813fb-ea21-4607-91d7-a57ceb0ff7ac-000000\",\"subject\":\"Sample Subject\"},\"tags\":{\"ses:source-tls-version\":[\"TLSv1.3\"],\"ses:operation\":[\"SendEmail\"],\"ses:configuration-set\":[\"my-first-configuration-set\"],\"ses:source-ip\":[\"103.18.73.90\"],\"ses:from-domain\":[\"avyuktsolutions.com\"],\"ses:caller-identity\":[\"SES-AS\"]}}}\n",
+  "Timestamp" : "2024-10-10T08:32:33.075Z",
+  "SignatureVersion" : "1",
+  "Signature" : "Sn3iZku7Y6SLweuAEtdcirVkqv1gQq3txi1y60CDiBcPLVyde41613MqBEO+P6YouyhLjSKa0RDeN5Znuoz+r2LBlom3wfjLVKKG7RUUi84PXhZyvofB7GaqzvWT+3WWPq5L9Ig6JrAnvinQFsZm1nJVcDJ2QcP0gKlBtKi6P9N5QwSeNPtKAsmhPEL4d5Jyf+zw0FJ8dnneqXXx6Xjl5epR8lx8MWex2XByr1r9NfFMWXv1MkTN+th8/STZmxIso2xw7JVK9rHVX55i1p+TpQgv2tyH80RdX3ToBhHUXDjcRDpkU1Jfj1whdBSXIelxxkqkwaJ1BqMgoIkLNw1wIA==",
+  "SigningCertURL" : "https://sns.ap-south-1.amazonaws.com/SimpleNotificationService-60eadc530605d63b8e62a523676ef735.pem",
+  "UnsubscribeURL" : "https://sns.ap-south-1.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:ap-south-1:061051249869:SNS-Topic:2be52b82-e1ab-4a04-aa51-2f56ec8cf56a"
 }
