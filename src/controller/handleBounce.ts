@@ -4,13 +4,13 @@ import ses from "../helper/ses"; // Make sure this import is correctly set up fo
 import { SendEmailCommand } from "@aws-sdk/client-ses";
 
 const handleBounce = async (req: Request, res: Response): Promise<void> => {
-  const { eventType, Message } = req.body;
+  const body = req.body;
 
-  console.log(req.body);
+  console.log(body["Message"]);
 
   try {
     // Parse the Message string to JSON
-    const messageData = JSON.parse(Message);
+    const messageData = JSON.parse(body["Message"]);
 
     // Destructure necessary data from the parsed message
     const { eventType: parsedEventType, bounce } = messageData;
