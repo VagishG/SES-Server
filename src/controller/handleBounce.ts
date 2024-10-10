@@ -10,62 +10,26 @@ const handleBounce = async (req: Request, res: Response): Promise<void> => {
   console.log(req.body);
   console.log(headers);
 
-  const params = {
-    Destination: {
-      ToAddresses: ["aayanguptastudent@gmail.com"],
-    },
-    Message: {
-      Body: {
-        Text: {
-          Charset: "UTF-8",
-          Data: `${JSON.stringify(req.body)}   and   ${JSON.stringify(headers)}`,
-        },
-      },
-      Subject: {
-        Charset: "UTF-8",
-        Data: "This is sample body",
-      },
-    },
-    ReplyToAddresses: ["support@avyuktsolutions.com"],
-    Source: "sales@avyuktsolutions.com",
-  };
 
-  try {
-    // await ses.sendEmail(params).promise();
-    const command = new SendEmailCommand(params);
-    await ses.send(command);
+//   try {
+//     for (const recipient of bouncedRecipients) {
+//       const { emailAddress } = recipient;
 
-    // const hashedOtp = await hashString(otp);
-    // console.log(hashedOtp);
-  } catch (err) {
-    console.error(err);
-  }
-  // if (!eventType || !bounce || eventType !== "Bounce") {
-  //   res.status(400).json({ message: "Invalid or missing event type" });
-  //   return;
-  // }
+//       await prisma.email.upsert({
+//         where: { email: emailAddress },
+//         update: { status: "BOUNCED" },
+//         create: {
+//           email: emailAddress,
+//           status: "BOUNCED",
+//         },
+//       });
+//     }
 
-  const { bouncedRecipients } = bounce;
-
-  try {
-    for (const recipient of bouncedRecipients) {
-      const { emailAddress } = recipient;
-
-      await prisma.email.upsert({
-        where: { email: emailAddress },
-        update: { status: "BOUNCED" },
-        create: {
-          email: emailAddress,
-          status: "BOUNCED",
-        },
-      });
-    }
-
-    res.status(200).json({ message: "Bounce event handled successfully" });
-  } catch (error) {
-    console.error("Error handling bounce event:", error);
-    res.status(500).json({ message: "Internal Server Error" });
-  }
+//     res.status(200).json({ message: "Bounce event handled successfully" });
+//   } catch (error) {
+//     console.error("Error handling bounce event:", error);
+//     res.status(500).json({ message: "Internal Server Error" });
+//   }
 };
 
 export { handleBounce };
