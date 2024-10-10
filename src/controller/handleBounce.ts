@@ -6,11 +6,9 @@ import { SendEmailCommand } from "@aws-sdk/client-ses";
 const handleBounce = async (req: Request, res: Response): Promise<void> => {
   const body = req.body;
 
-  console.log(body.Message);
-  console.log(body);
-
   try {
     // Parse the Message string to JSON
+    console.log(body["Message"]);
     const messageData = JSON.parse(body["Message"]);
 
     // Destructure necessary data from the parsed message
@@ -34,7 +32,9 @@ const handleBounce = async (req: Request, res: Response): Promise<void> => {
 
       res.status(200).json({ message: "Bounce event handled successfully" });
     } else {
-      res.status(400).json({ message: "Invalid event type or missing bounce data" });
+      res
+        .status(400)
+        .json({ message: "Invalid event type or missing bounce data" });
     }
   } catch (error) {
     console.error("Error handling bounce event:", error);
