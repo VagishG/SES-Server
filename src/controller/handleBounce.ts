@@ -6,7 +6,8 @@ import { SendEmailCommand } from "@aws-sdk/client-ses";
 const handleBounce = async (req: Request, res: Response): Promise<void> => {
   const body = req.body;
 
-  console.log(body["Message"]);
+  console.log(body.Message);
+  console.log(body);
 
   try {
     // Parse the Message string to JSON
