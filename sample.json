@@ -1,15 +1,51 @@
 {
-  "Type" : "Notification",
-  "MessageId" : "d3e9f5df-99d6-504d-bb10-aa5e0ab783b2",
-  "TopicArn" : "arn:aws:sns:ap-south-1:061051249869:SNS-Topic",
-  "Subject" : "Amazon SES Email Event Notification",
-  "Message" : "{\"eventType\":\"Bounce\",\"bounce\":{\"feedbackId\":\"01090192758ee86b-7861a540-0b6f-4e96-aa3b-1522c56b59ca-000000\",\"bounceType\":\"Permanent\",\"bounceSubType\":\"General\",\"bouncedRecipients\":[{\"emailAddress\":\"thisissupposhhjvbvhj@gmail.com\",\"action\":\"failed\",\"status\":\"5.1.1\",\"diagnosticCode\":\"smtp; 550-5.1.1 The email account that you tried to reach does not exist. Please try\\n550-5.1.1 double-checking the recipient's email address for typos or\\n550-5.1.1 unnecessary spaces. For more information, go to\\n550 5.1.1  https://support.google.com/mail/?p=NoSuchUser d9443c01a7336-20c8bac5940si8849795ad.73 - gsmtp\"}],\"timestamp\":\"2024-10-10T08:32:32.940Z\",\"remoteMtaIp\":\"142.251.10.26\",\"reportingMTA\":\"dns; c180-12.smtp-out.ap-south-1.amazonses.com\"},\"mail\":{\"timestamp\":\"2024-10-10T08:32:31.864Z\",\"source\":\"sales@avyuktsolutions.com\",\"sourceArn\":\"arn:aws:ses:ap-south-1:061051249869:identity/avyuktsolutions.com\",\"sendingAccountId\":\"061051249869\",\"messageId\":\"01090192758ee478-8e7813fb-ea21-4607-91d7-a57ceb0ff7ac-000000\",\"destination\":[\"thisissupposhhjvbvhj@gmail.com\"],\"headersTruncated\":false,\"headers\":[{\"name\":\"From\",\"value\":\"sales@avyuktsolutions.com\"},{\"name\":\"Reply-To\",\"value\":\"support@avyuktsolutions.com\"},{\"name\":\"To\",\"value\":\"thisissupposhhjvbvhj@gmail.com\"},{\"name\":\"Subject\",\"value\":\"Sample Subject\"},{\"name\":\"MIME-Version\",\"value\":\"1.0\"},{\"name\":\"Content-Type\",\"value\":\"text/plain; charset=UTF-8\"},{\"name\":\"Content-Transfer-Encoding\",\"value\":\"7bit\"}],\"commonHeaders\":{\"from\":[\"sales@avyuktsolutions.com\"],\"replyTo\":[\"support@avyuktsolutions.com\"],\"to\":[\"thisissupposhhjvbvhj@gmail.com\"],\"messageId\":\"01090192758ee478-8e7813fb-ea21-4607-91d7-a57ceb0ff7ac-000000\",\"subject\":\"Sample Subject\"},\"tags\":{\"ses:source-tls-version\":[\"TLSv1.3\"],\"ses:operation\":[\"SendEmail\"],\"ses:configuration-set\":[\"my-first-configuration-set\"],\"ses:source-ip\":[\"103.18.73.90\"],\"ses:from-domain\":[\"avyuktsolutions.com\"],\"ses:caller-identity\":[\"SES-AS\"]}}}\n",
-  "Timestamp" : "2024-10-10T08:32:33.075Z",
-  "SignatureVersion" : "1",
-  "Signature" : "Sn3iZku7Y6SLweuAEtdcirVkqv1gQq3txi1y60CDiBcPLVyde41613MqBEO+P6YouyhLjSKa0RDeN5Znuoz+r2LBlom3wfjLVKKG7RUUi84PXhZyvofB7GaqzvWT+3WWPq5L9Ig6JrAnvinQFsZm1nJVcDJ2QcP0gKlBtKi6P9N5QwSeNPtKAsmhPEL4d5Jyf+zw0FJ8dnneqXXx6Xjl5epR8lx8MWex2XByr1r9NfFMWXv1MkTN+th8/STZmxIso2xw7JVK9rHVX55i1p+TpQgv2tyH80RdX3ToBhHUXDjcRDpkU1Jfj1whdBSXIelxxkqkwaJ1BqMgoIkLNw1wIA==",
-  "SigningCertURL" : "https://sns.ap-south-1.amazonaws.com/SimpleNotificationService-60eadc530605d63b8e62a523676ef735.pem",
-  "UnsubscribeURL" : "https://sns.ap-south-1.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:ap-south-1:061051249869:SNS-Topic:2be52b82-e1ab-4a04-aa51-2f56ec8cf56a"
+  "eventType": "Bounce",
+  "bounce": {
+    "feedbackId": "0109019275d40e5f-63c60538-a551-4fee-8f5a-4bc8acc0bcef-000000",
+    "bounceType": "Permanent",
+    "bounceSubType": "OnAccountSuppressionList",
+    "bouncedRecipients": [
+      {
+        "emailAddress": "singhabjhgbu@gmail.com",
+        "action": "failed",
+        "status": "5.1.1",
+        "diagnosticCode": "Amazon SES did not send the message to this address because it is on the suppression list for your account. For more information about removing addresses from the suppression list, see the Amazon SES Developer Guide at https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-email-suppression-list.html"
+      }
+    ],
+    "timestamp": "2024-10-10T09:48:04.635Z",
+    "reportingMTA": "dns; amazonses.com"
+  },
+  "mail": {
+    "timestamp": "2024-10-10T09:48:04.381Z",
+    "source": "sales@avyuktsolutions.com",
+    "sourceArn": "arn:aws:ses:ap-south-1:061051249869:identity/avyuktsolutions.com",
+    "sendingAccountId": "061051249869",
+    "messageId": "0109019275d40d9d-3f8d3aea-8d1d-4db0-8c24-24d0f0cf305b-000000",
+    "destination": ["singhabjhgbu@gmail.com"],
+    "headersTruncated": false,
+    "headers": [
+      { "name": "From", "value": "sales@avyuktsolutions.com" },
+      { "name": "Reply-To", "value": "support@avyuktsolutions.com" },
+      { "name": "To", "value": "singhabjhgbu@gmail.com" },
+      { "name": "Subject", "value": "test otp" },
+      { "name": "MIME-Version", "value": "1.0" },
+      { "name": "Content-Type", "value": "text/plain; charset=UTF-8" },
+      { "name": "Content-Transfer-Encoding", "value": "7bit" }
+    ],
+    "commonHeaders": {
+      "from": ["sales@avyuktsolutions.com"],
+      "replyTo": ["support@avyuktsolutions.com"],
+      "to": ["singhabjhgbu@gmail.com"],
+      "messageId": "0109019275d40d9d-3f8d3aea-8d1d-4db0-8c24-24d0f0cf305b-000000",
+      "subject": "test otp"
+    },
+    "tags": {
+      "ses:source-tls-version": ["TLSv1.3"],
+      "ses:operation": ["SendEmail"],
+      "ses:configuration-set": ["my-first-configuration-set"],
+      "ses:source-ip": ["34.211.200.85"],
+      "ses:from-domain": ["avyuktsolutions.com"],
+      "ses:caller-identity": ["SES-AS"]
+    }
+  }
 }
-
-
-{"eventType":"Bounce","bounce":{"feedbackId":"0109019275d40e5f-63c60538-a551-4fee-8f5a-4bc8acc0bcef-000000","bounceType":"Permanent","bounceSubType":"OnAccountSuppressionList","bouncedRecipients":[{"emailAddress":"singhabjhgbu@gmail.com","action":"failed","status":"5.1.1","diagnosticCode":"Amazon SES did not send the message to this address because it is on the suppression list for your account. For more information about removing addresses from the suppression list, see the Amazon SES Developer Guide at https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-email-suppression-list.html"}],"timestamp":"2024-10-10T09:48:04.635Z","reportingMTA":"dns; amazonses.com"},"mail":{"timestamp":"2024-10-10T09:48:04.381Z","source":"sales@avyuktsolutions.com","sourceArn":"arn:aws:ses:ap-south-1:061051249869:identity/avyuktsolutions.com","sendingAccountId":"061051249869","messageId":"0109019275d40d9d-3f8d3aea-8d1d-4db0-8c24-24d0f0cf305b-000000","destination":["singhabjhgbu@gmail.com"],"headersTruncated":false,"headers":[{"name":"From","value":"sales@avyuktsolutions.com"},{"name":"Reply-To","value":"support@avyuktsolutions.com"},{"name":"To","value":"singhabjhgbu@gmail.com"},{"name":"Subject","value":"test otp"},{"name":"MIME-Version","value":"1.0"},{"name":"Content-Type","value":"text/plain; charset=UTF-8"},{"name":"Content-Transfer-Encoding","value":"7bit"}],"commonHeaders":{"from":["sales@avyuktsolutions.com"],"replyTo":["support@avyuktsolutions.com"],"to":["singhabjhgbu@gmail.com"],"messageId":"0109019275d40d9d-3f8d3aea-8d1d-4db0-8c24-24d0f0cf305b-000000","subject":"test otp"},"tags":{"ses:source-tls-version":["TLSv1.3"],"ses:operation":["SendEmail"],"ses:configuration-set":["my-first-configuration-set"],"ses:source-ip":["34.211.200.85"],"ses:from-domain":["avyuktsolutions.com"],"ses:caller-identity":["SES-AS"]}}}

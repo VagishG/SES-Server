@@ -5,25 +5,9 @@ import { SendEmailCommand } from "@aws-sdk/client-ses";
 
 const handleBounce = async (req: Request, res: Response): Promise<void> => {
   const body = req.body;
-  console.log(body)
-  console.log("dadas")
-  console.log("dadas")
-  console.log("dadas")
-  console.log("dadas")
   const t = JSON.parse(body);
-  console.log(t);
-  console.log("dadas")
-  console.log(t["eventType"])
-  console.log(t["bounce"])
   try {
-    // Parse the Message string to JSON
-    console.log(body["eventType"])
-    console.log(body["bounce"])
-    // console.log(body["Message"]);
-    const messageData = JSON.parse(body["Message"]);
-
-    // Destructure necessary data from the parsed message
-    const { eventType: parsedEventType, bounce } = messageData;
+    const { eventType: parsedEventType, bounce } = t;
 
     if (parsedEventType === "Bounce" && bounce) {
       const { bouncedRecipients } = bounce;
