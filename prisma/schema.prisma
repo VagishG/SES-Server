@@ -13,7 +13,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum Status{
+enum Status {
   BOUNCED
   DELIVERED
   OPENED
@@ -22,9 +22,23 @@ enum Status{
   COMPLAINT
 }
 
-model Email{
-  id  Int @id @default(autoincrement())
-  email String @unique
-  status Status
+model Email {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  status    Status
   createdAt DateTime @default(now())
+
+  Tracking Tracking[]
+}
+
+model Tracking {
+  emailId    Int       @id
+  email      Email     @relation(fields: [emailId], references: [id])
+  createdAt  DateTime  @default(now())
+  open       Boolean   @default(false)
+  clicked    Boolean   @default(false)
+  openedAt   DateTime?
+  clickedAt  DateTime?
+  openCount  Int       @default(0) // Add this field to track open count
+  clickCount Int       @default(0) // Add this field to track click count
 }

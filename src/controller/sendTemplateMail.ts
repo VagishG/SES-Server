@@ -2,10 +2,15 @@ import { SendBulkTemplatedEmailCommand } from "@aws-sdk/client-ses";
 import type { Request, Response } from "express"; // Importing as type-only
 import { addEmail, canSendMail } from "../helper/checkStatus";
 import ses from "../helper/ses";
+import { ConfigurationOptions } from "aws-sdk";
 
 const sendTemplateMail = async (req: Request, res: Response): Promise<void> => {
   const { email, template } = req.body;
-  const allowedEmails: { email: string; company_name: string; person_name: string }[] = [];
+  const allowedEmails: {
+    email: string;
+    company_name: string;
+    person_name: string;
+  }[] = [];
 
   try {
     for (const data of email) {
@@ -34,11 +39,10 @@ const sendTemplateMail = async (req: Request, res: Response): Promise<void> => {
 
     const params = {
       Source: "Prachi <sales@avyuktsolutions.com>",
+      ConfigurationSetName: "my-first-configuration-set",
       Template: template,
       Destinations: destinations,
-      ReplyToAddresses: [
-        "support@avyuktsolutions.com",
-      ],
+      ReplyToAddresses: ["support@avyuktsolutions.com"],
       DefaultTemplateData: JSON.stringify({
         company_name: "Default Company",
         person_name: "Default Name",
@@ -52,7 +56,8 @@ const sendTemplateMail = async (req: Request, res: Response): Promise<void> => {
         //   else resolve(data);
         // });
         const command = new SendBulkTemplatedEmailCommand(params);
-        ses.send(command)
+        ses
+          .send(command)
           .then((data) => {
             resolve(data);
           })
@@ -75,4 +80,3 @@ const sendTemplateMail = async (req: Request, res: Response): Promise<void> => {
 };
 
 export { sendTemplateMail };
-

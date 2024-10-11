@@ -1,51 +1,51 @@
 {
-  "eventType": "Bounce",
-  "bounce": {
-    "feedbackId": "0109019275d40e5f-63c60538-a551-4fee-8f5a-4bc8acc0bcef-000000",
-    "bounceType": "Permanent",
-    "bounceSubType": "OnAccountSuppressionList",
-    "bouncedRecipients": [
-      {
-        "emailAddress": "singhabjhgbu@gmail.com",
-        "action": "failed",
-        "status": "5.1.1",
-        "diagnosticCode": "Amazon SES did not send the message to this address because it is on the suppression list for your account. For more information about removing addresses from the suppression list, see the Amazon SES Developer Guide at https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-email-suppression-list.html"
-      }
-    ],
-    "timestamp": "2024-10-10T09:48:04.635Z",
-    "reportingMTA": "dns; amazonses.com"
-  },
+  "eventType": "Click",
   "mail": {
-    "timestamp": "2024-10-10T09:48:04.381Z",
-    "source": "sales@avyuktsolutions.com",
-    "sourceArn": "arn:aws:ses:ap-south-1:061051249869:identity/avyuktsolutions.com",
+    "timestamp": "2024-10-11T16:07:53.548Z",
+    "source": "Prachi <sales@avyuktsolutions.com>",
     "sendingAccountId": "061051249869",
-    "messageId": "0109019275d40d9d-3f8d3aea-8d1d-4db0-8c24-24d0f0cf305b-000000",
-    "destination": ["singhabjhgbu@gmail.com"],
+    "messageId": "010901927c5625cc-fb4422df-7a51-46cf-95ca-561c0ce09c65-000000",
+    "destination": ["aayanguptastudent@gmail.com"],
     "headersTruncated": false,
     "headers": [
-      { "name": "From", "value": "sales@avyuktsolutions.com" },
+      { "name": "Date", "value": "Fri, 11 Oct 2024 16:07:53 +0000" },
+      { "name": "From", "value": "Prachi <sales@avyuktsolutions.com>" },
       { "name": "Reply-To", "value": "support@avyuktsolutions.com" },
-      { "name": "To", "value": "singhabjhgbu@gmail.com" },
-      { "name": "Subject", "value": "test otp" },
+      { "name": "To", "value": "aayanguptastudent@gmail.com" },
+      {
+        "name": "Subject",
+        "value": "Elevate Your Brand with a Custom Website"
+      },
       { "name": "MIME-Version", "value": "1.0" },
-      { "name": "Content-Type", "value": "text/plain; charset=UTF-8" },
-      { "name": "Content-Transfer-Encoding", "value": "7bit" }
+      {
+        "name": "Content-Type",
+        "value": "multipart/alternative;  boundary=\"----=_Part_2181571_2007239854.1728662873647\""
+      }
     ],
     "commonHeaders": {
-      "from": ["sales@avyuktsolutions.com"],
+      "from": ["Prachi <sales@avyuktsolutions.com>"],
       "replyTo": ["support@avyuktsolutions.com"],
-      "to": ["singhabjhgbu@gmail.com"],
-      "messageId": "0109019275d40d9d-3f8d3aea-8d1d-4db0-8c24-24d0f0cf305b-000000",
-      "subject": "test otp"
+      "date": "Fri, 11 Oct 2024 16:07:53 +0000",
+      "to": ["aayanguptastudent@gmail.com"],
+      "messageId": "010901927c5625cc-fb4422df-7a51-46cf-95ca-561c0ce09c65-000000",
+      "subject": "Elevate Your Brand with a Custom Website"
     },
     "tags": {
       "ses:source-tls-version": ["TLSv1.3"],
-      "ses:operation": ["SendEmail"],
+      "ses:operation": ["SendTemplatedEmail"],
       "ses:configuration-set": ["my-first-configuration-set"],
+      "ses:recipient-isp": ["Gmail"],
       "ses:source-ip": ["34.211.200.85"],
       "ses:from-domain": ["avyuktsolutions.com"],
+      "ses:sender-identity": ["avyuktsolutions.com"],
       "ses:caller-identity": ["SES-AS"]
     }
+  },
+  "click": {
+    "timestamp": "2024-10-11T16:08:51.717Z",
+    "ipAddress": "182.79.253.137",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36",
+    "link": "https://www.avyuktsolutions.com/website-development",
+    "linkTags": null
   }
 }

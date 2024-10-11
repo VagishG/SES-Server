@@ -10,4 +10,6 @@ router.route("/sendTemplateMail").post(sendTemplateMail);
 router.route("/handleBounce").post(handleBounce);
 
 
+
+
 export default router;
