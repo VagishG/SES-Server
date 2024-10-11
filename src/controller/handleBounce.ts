@@ -8,8 +8,9 @@ const handleBounce = async (req: Request, res: Response): Promise<void> => {
 
   try {
     // Parse the Message string to JSON
-    console.log(req.body)
-    console.log(body["Message"]);
+    console.log(req.body.eventType)
+    console.log(req.body.bounce)
+    // console.log(body["Message"]);
     const messageData = JSON.parse(body["Message"]);
 
     // Destructure necessary data from the parsed message
