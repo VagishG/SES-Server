@@ -42,3 +42,4 @@ model Tracking {
   openCount  Int       @default(0) // Add this field to track open count
   clickCount Int       @default(0) // Add this field to track click count
 }
+
