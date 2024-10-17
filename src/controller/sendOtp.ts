@@ -15,11 +15,18 @@ const generateOTP = (length: number): string => {
 };
 
 // Hash a string using bcrypt
-// async function hashString(str: string) {
-//   const saltRounds = 10;
-//   const hashedString = await bcrypt.hash(str, saltRounds);
-//   return hashedString;
-// }
+function simpleHash(str: string): string {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    const charCode = str.charCodeAt(i);
+    // Perform some arbitrary operations on the charCode
+    hash = (hash << 5) - hash + charCode;
+    hash |= 0; // Force it to be a 32-bit integer
+  }
+
+  // Convert the final hash number to a hexadecimal string
+  return hash.toString(16);
+}
 
 // Send OTP via email
 const sendOtp = async (req: Request, res: Response) => {
@@ -67,9 +74,9 @@ const sendOtp = async (req: Request, res: Response) => {
     const command = new SendEmailCommand(params);
     await ses.send(command);
 
-    // const hashedOtp = await hashString(otp);
+    const hashedOtp = await simpleHash(otp);
     // console.log(hashedOtp);
-    res.status(200).send({ otp: otp });
+    res.status(200).send({ otp: hashedOtp });
   } catch (err) {
     console.error(err);
     res.status(500).send({ message: "Internal Server Error" });

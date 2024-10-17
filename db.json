@@ -1,5 +1,16 @@
 {
-    "blocked_emails":[
-        
+  "blocked_emails": [{ "email": "", "status": "", "timestamp": "" }],
+  "gym_vita_connect":[{}],
+  "alumni_portal":[{}],
+  "campaign_1":{
+    "timestamp": "2024-10-11T16:07:53.548Z",
+    "from":"",
+    "template_name":"",
+    "tracking":[
+        {
+            "email":"",
+            "event_type":""
+        }
     ]
+  }
 }
