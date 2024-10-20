@@ -6,7 +6,7 @@ import cors from "cors";
 const app = express();
 
 // List of allowed origins
-const allowedOrigins = ["http://localhost:3000", "https://www.avyuktsolutions.com/"];
+const allowedOrigins = ["http://localhost:3000", "https://www.avyuktsolutions.com/", "https://avyukt-mq-portal.vercel.app/"];
 
 // CORS options to allow multiple origins
 const corsOptions = {
